@@ -24,9 +24,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 schema_view = get_schema_view(
    openapi.Info(
-      title="Neotour API",
+      title="Neoauth API",
       default_version='v1',
-      description="API Neotour предоставляет доступ к различным запросам, требующим аутентификации "
+      description="API Neoauth предоставляет доступ к различным запросам, требующим аутентификации "
                   "с помощью токена Bearer. "
                   "Для аутентификации включите 'Bearer {access_token}' в заголовок 'Authorization'.",
       terms_of_service="https://www.google.com/policies/terms/",

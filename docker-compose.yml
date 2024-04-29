@@ -1,0 +1,23 @@
+version: '3.10'
+
+services:
+  db-neoauth:
+    image: postgres:latest
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+
+  web-neoauth:
+    build: .
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate && gunicorn config.wsgi:application -w 4 -b 0.0.0.0:8010"
+    volumes:
+      - .:/config
+      - ./static:/app/static
+    ports:
+      - "8010:8010"
+    depends_on:
+      - db-neoauth
+    env_file:
+      - .env
