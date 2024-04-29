@@ -141,3 +141,4 @@ postgres
 bin
 include
 lib
+pyvenv.cfg
